@@ -12,13 +12,19 @@ public class CharacterSkinController : MonoBehaviour
     public Color[] eyeColors;
     public enum EyePosition { normal, happy, angry, dead}
     public EyePosition eyeState;
+    [SerializeField]
+    private int materialIndex;
 
     // Start is called before the first frame update
-    void Start()
+
+    private void Awake()
     {
         animator = GetComponent<Animator>();
         characterMaterials = GetComponentsInChildren<Renderer>();
-        ChangeEyeOffset(eyeState);
+    }
+    void Start()
+    {
+        ChangeMaterialSettings(materialIndex);
     }
 
     // Update is called once per frame
@@ -50,7 +56,7 @@ public class CharacterSkinController : MonoBehaviour
         //}
     }
 
-    void ChangeAnimatorIdle(string trigger)
+    public void ChangeAnimatorIdle(string trigger)
     {
         animator.SetTrigger(trigger);
     }
@@ -66,7 +72,7 @@ public class CharacterSkinController : MonoBehaviour
         }
     }
 
-    void ChangeEyeOffset(EyePosition pos)
+    public void ChangeEyeOffset(EyePosition pos)
     {
         Vector2 offset = Vector2.zero;
 
