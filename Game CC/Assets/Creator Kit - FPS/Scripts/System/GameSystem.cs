@@ -101,7 +101,6 @@ public class GameSystem : MonoBehaviour
         BGMPlayer.loop = false;
         BGMPlayer.Play();
         
-        Controller.Instance.DisplayCursor(true);
         Controller.Instance.CanPause = false;
         FinalScoreUI.Instance.Display();
     }

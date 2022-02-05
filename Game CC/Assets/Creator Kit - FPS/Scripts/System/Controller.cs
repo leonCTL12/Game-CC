@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -61,16 +62,56 @@ public class Controller : MonoBehaviour
     List<Weapon> m_Weapons = new List<Weapon>();
     Dictionary<int, int> m_AmmoInventory = new Dictionary<int, int>();
 
+    #region Newly added code
+    //input param
+    private Vector2 walkInput;
+    [SerializeField]
+    private float speed;
+    //new variable
+    private CharacterController characterController;
+    #endregion
+
+    public void Move(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            walkInput = context.ReadValue<Vector2>();
+        }
+        else if (context.canceled)
+        {
+            walkInput = Vector2.zero;
+        }
+    }
+
+    public void OpenMenu(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            if (CanPause)
+            {
+                PauseMenu.Instance.Display();
+            }
+        }
+
+    }
+
+    private void MovementHandler()
+    {
+        Vector3 move = transform.right * walkInput.x + transform.forward * walkInput.y; //create direction to move base on where player is facing
+        if (move != Vector3.zero)
+        {
+            characterController.Move(move * speed * Time.deltaTime);
+        }
+    }
+
     void Awake()
     {
         Instance = this;
+        characterController = GetComponent<CharacterController>();
     }
     
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-
         m_IsPaused = false;
         m_Grounded = true;
         
@@ -103,16 +144,22 @@ public class Controller : MonoBehaviour
 
     void Update()
     {
+        MovementHandler();
+    }
+
+    //keep as reference
+    private void OriginalUpdate()
+    {
         if (CanPause && Input.GetButtonDown("Menu"))
         {
             PauseMenu.Instance.Display();
         }
-        
-        FullscreenMap.Instance.gameObject.SetActive(Input.GetButton("Map"));
+
+        //FullscreenMap.Instance.gameObject.SetActive(Input.GetButton("Map"));
 
         bool wasGrounded = m_Grounded;
         bool loosedGrounding = false;
-        
+
         //we define our own grounded and not use the Character controller one as the character controller can flicker
         //between grounded/not grounded on small step and the like. So we actually make the controller "not grounded" only
         //if the character controller reported not being grounded for at least .5 second;
@@ -138,15 +185,15 @@ public class Controller : MonoBehaviour
         Vector3 move = Vector3.zero;
         if (!m_IsPaused && !LockControl)
         {
-            // Jump (we do it first as 
+            // Jump 
             if (m_Grounded && Input.GetButtonDown("Jump"))
             {
                 m_VerticalSpeed = JumpSpeed;
                 m_Grounded = false;
                 loosedGrounding = true;
-                FootstepPlayer.PlayClip(JumpingAudioCLip, 0.8f,1.1f);
+                FootstepPlayer.PlayClip(JumpingAudioCLip, 0.8f, 1.1f);
             }
-            
+
             bool running = m_Weapons[m_CurrentWeapon].CurrentState == Weapon.WeaponState.Idle && Input.GetButton("Run");
             float actualSpeed = running ? RunningSpeed : PlayerSpeed;
 
@@ -161,19 +208,22 @@ public class Controller : MonoBehaviour
                 move.Normalize();
 
             float usedSpeed = m_Grounded ? actualSpeed : m_SpeedAtJump;
-            
+
             move = move * usedSpeed * Time.deltaTime;
-            
+
             move = transform.TransformDirection(move);
             m_CharacterController.Move(move);
-            
+
+
+
+
             // Turn player
-            float turnPlayer =  Input.GetAxis("Mouse X") * MouseSensitivity;
+            float turnPlayer = Input.GetAxis("Mouse X") * MouseSensitivity;
             m_HorizontalAngle = m_HorizontalAngle + turnPlayer;
 
             if (m_HorizontalAngle > 360) m_HorizontalAngle -= 360.0f;
             if (m_HorizontalAngle < 0) m_HorizontalAngle += 360.0f;
-            
+
             Vector3 currentAngles = transform.localEulerAngles;
             currentAngles.y = m_HorizontalAngle;
             transform.localEulerAngles = currentAngles;
@@ -185,7 +235,7 @@ public class Controller : MonoBehaviour
             currentAngles = CameraPosition.transform.localEulerAngles;
             currentAngles.x = m_VerticalAngle;
             CameraPosition.transform.localEulerAngles = currentAngles;
-  
+
             m_Weapons[m_CurrentWeapon].triggerDown = Input.GetMouseButton(0);
 
             Speed = move.magnitude / (PlayerSpeed * Time.deltaTime);
@@ -201,7 +251,7 @@ public class Controller : MonoBehaviour
             {
                 ChangeWeapon(m_CurrentWeapon + 1);
             }
-            
+
             //Key input to change weapon
 
             for (int i = 0; i < 10; ++i)
@@ -233,15 +283,8 @@ public class Controller : MonoBehaviour
 
         if (!wasGrounded && m_Grounded)
         {
-            FootstepPlayer.PlayClip(LandingAudioClip, 0.8f,1.1f);
+            FootstepPlayer.PlayClip(LandingAudioClip, 0.8f, 1.1f);
         }
-    }
-
-    public void DisplayCursor(bool display)
-    {
-        m_IsPaused = display;
-        Cursor.lockState = display ? CursorLockMode.None : CursorLockMode.Locked;
-        Cursor.visible = display;
     }
 
     void PickupWeapon(Weapon prefab)
