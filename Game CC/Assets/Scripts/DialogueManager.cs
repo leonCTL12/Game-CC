@@ -16,6 +16,9 @@ public class DialogueManager : MonoBehaviour
     [SerializeField]
     private GameObject videoRawImage;
 
+    [SerializeField]
+    private AudioSource audioSource;
+
     private int currentDialogueIndex = 0;
 
     private void Start()
@@ -25,9 +28,11 @@ public class DialogueManager : MonoBehaviour
 
     private IEnumerator PlayTVNoSignal()
     {
+        audioSource.Stop();
         videoRawImage.SetActive(true);
         yield return new WaitForSeconds(3.8f);
         PlayNextLine();
+        audioSource.Play();
         videoRawImage.SetActive(false);
     }
 
