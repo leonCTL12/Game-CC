@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuNavigator : MonoBehaviour
 {
@@ -19,12 +20,29 @@ public class MenuNavigator : MonoBehaviour
     private MenuHealroManager bottomRobots;
     [SerializeField]
     private SubMenuHealroManager subMenuHealro;
+    [SerializeField]
+    private GameObject statusBar;
+    [SerializeField]
+    private GameObject coverPage;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
     }
 
+    public void ShowMainPanel()
+    {
+        animator.SetTrigger("cover_outro");
+        StartCoroutine(CoverOutroCoroutine());
+    }
+
+    private IEnumerator CoverOutroCoroutine()
+    {
+        yield return new WaitForSeconds(0.4f);
+        statusBar.SetActive(true);
+        mainMenu.SetActive(true);
+        coverPage.SetActive(false); 
+    }
     public void ShowWorkOutMenu()
     {
         StartCoroutine(ShowWorkOutMenuCoroutine());
@@ -113,5 +131,10 @@ public class MenuNavigator : MonoBehaviour
         animator.SetBool("diet_intro", false);
         animator.SetBool("battle_intro", false);
         animator.SetBool("shop_intro", false);
+    }
+
+    public void GoToFightScene()
+    {
+        SceneManager.LoadScene("ExampleScene");
     }
 }

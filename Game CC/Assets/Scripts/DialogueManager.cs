@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -54,7 +55,7 @@ public class DialogueManager : MonoBehaviour
     public IEnumerator EndingCoroutine()
     {
         StartCoroutine(PlayTVNoSignal());
-        yield return new WaitForSeconds(3.8f);
-        Debug.Log("End");
+        yield return new WaitForSeconds(3.5f);
+        SceneManager.LoadScene("MainUI");
     }
 }
