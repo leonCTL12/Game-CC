@@ -10,6 +10,8 @@ public class MenuNavigator : MonoBehaviour
     [SerializeField]
     private GameObject workOutMenu;
     [SerializeField]
+    private GameObject dietQuiz;
+    [SerializeField]
     private MenuHealroManager bottomRobots;
     [SerializeField]
     private SubMenuHealroManager subMenuHealro;
@@ -35,6 +37,22 @@ public class MenuNavigator : MonoBehaviour
         mainMenu.SetActive(false);
     }
 
+    public void ShowDietQuiz()
+    {
+        StartCoroutine(ShowDietQuizCoroutine());
+    }
+
+    private IEnumerator ShowDietQuizCoroutine()
+    {
+        dietQuiz.SetActive(true);
+        animator.SetBool("diet_intro", true);
+        animator.SetTrigger("main_outro");
+        bottomRobots.PlayRobotsOutro();
+        yield return new WaitForSeconds(0.3f);
+        subMenuHealro.PlayRobotsIntro(SubMenuHealroManager.robot.diet);
+        mainMenu.SetActive(false);
+    }
+
     public void BackToMainMenu()
     {
         StartCoroutine(BackToMainMenuCoroutine());
@@ -47,6 +65,10 @@ public class MenuNavigator : MonoBehaviour
         yield return new WaitForSeconds(0.4f);
         bottomRobots.PlayRobotsIntro();
         workOutMenu.SetActive(false);
+        dietQuiz.SetActive(false);
         mainMenu.SetActive(true);
+
+        animator.SetBool("workout_intro", false);
+        animator.SetBool("diet_intro", false);
     }
 }

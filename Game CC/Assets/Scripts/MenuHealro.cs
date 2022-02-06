@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MenuHealro : MonoBehaviour
 {
-    public enum AnimatorState { normal, happy, angry, dead, run}
+    public enum AnimatorState { normal, happy, angry, dead, run, encourage}
     
     [SerializeField]
     private AnimatorState animatorState;
