@@ -25,6 +25,7 @@ public class CharacterSkinController : MonoBehaviour
     void Start()
     {
         ChangeMaterialSettings(materialIndex);
+        ChangeEyeOffset(eyeState);
     }
 
     // Update is called once per frame
