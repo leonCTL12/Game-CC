@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MenuHealro : MonoBehaviour
 {
-    public enum AnimatorState { normal, happy, angry, dead}
+    public enum AnimatorState { normal, happy, angry, dead, run}
     
     [SerializeField]
     private AnimatorState animatorState;
@@ -17,6 +17,12 @@ public class MenuHealro : MonoBehaviour
 
     private void Start()
     {
+        ResetAnimatorState();
+    }
+
+    public void ResetAnimatorState()
+    {
         animator.SetTrigger(animatorState.ToString());
+        Debug.Log("Resetted");
     }
 }
