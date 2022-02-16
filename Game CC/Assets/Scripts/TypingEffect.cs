@@ -8,10 +8,12 @@ public class TypingEffect : MonoBehaviour
     private Text targetText;
     [SerializeField]
     private float typeSpeed;
+    private AudioSource audioSource;
 
     private void Awake()
     {
         targetText = GetComponent<Text>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void Type(string stringToType)
@@ -23,7 +25,7 @@ public class TypingEffect : MonoBehaviour
     {
         float t = 0;
         int charIndex = 0;
-
+        audioSource.Play();
         while(charIndex < stringToType.Length)
         {
             t += Time.deltaTime * typeSpeed;
@@ -33,7 +35,7 @@ public class TypingEffect : MonoBehaviour
             targetText.text = stringToType.Substring(0, charIndex);
             yield return null;
         }
-
+        audioSource.Stop();
         targetText.text = stringToType;
     }
 }

@@ -58,4 +58,9 @@ public class DialogueManager : MonoBehaviour
         yield return new WaitForSeconds(3.5f);
         SceneManager.LoadScene("MainUI");
     }
+
+    public void SkipButtonOnClick()
+    {
+        StartCoroutine(EndingCoroutine());
+    }
 }

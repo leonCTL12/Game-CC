@@ -166,7 +166,7 @@ public class Controller : MonoBehaviour
         }
         
         m_CurrentWeapon = -1;
-        ChangeWeapon(0);
+        ChangeWeapon(1);
 
         for (int i = 0; i < startingAmmo.Length; ++i)
         {

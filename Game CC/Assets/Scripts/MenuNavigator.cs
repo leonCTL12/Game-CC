@@ -25,9 +25,12 @@ public class MenuNavigator : MonoBehaviour
     [SerializeField]
     private GameObject coverPage;
 
+    private AudioSource audioSource;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void ShowMainPanel()
@@ -45,6 +48,7 @@ public class MenuNavigator : MonoBehaviour
     }
     public void ShowWorkOutMenu()
     {
+        //audioSource.Play();
         StartCoroutine(ShowWorkOutMenuCoroutine());
     }
 
@@ -61,6 +65,7 @@ public class MenuNavigator : MonoBehaviour
 
     public void ShowDietQuiz()
     {
+        //audioSource.Play();
         StartCoroutine(ShowDietQuizCoroutine());
     }
 
@@ -77,6 +82,7 @@ public class MenuNavigator : MonoBehaviour
 
     public void ShowBattleMenu()
     {
+        //audioSource.Play();
         StartCoroutine(ShowBattleMenuCoroutine());
     }
 
@@ -93,6 +99,7 @@ public class MenuNavigator : MonoBehaviour
 
     public void ShowShopMenu()
     {
+        //audioSource.Play();
         StartCoroutine(ShowShopMenuCoroutine());
     }
 
@@ -109,6 +116,7 @@ public class MenuNavigator : MonoBehaviour
 
     public void BackToMainMenu()
     {
+        //audioSource.Play();
         StartCoroutine(BackToMainMenuCoroutine());
     }
 
