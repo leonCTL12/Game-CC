@@ -33,7 +33,12 @@ public class DietQuizUI : MonoBehaviour
         bottomText.text = chosenBottomText;
         titleText.text = chosenTitle;
 
-        animator.SetTrigger("Show");
+        animator.SetTrigger("ShowResult");
+    }
+
+    public void ShowCamera(bool show)
+    {
+        animator.SetBool("ShowCamera",show);
     }
 
 }
