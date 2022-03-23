@@ -18,6 +18,8 @@ public class DietQuizUI : MonoBehaviour
     private string wrongBottomText = "Don't give up! Come back and try again tomorrow:)";
 
     private Animator animator;
+    [SerializeField]
+    private Animator cameraAnimator;
 
     private void Awake()
     {
@@ -38,7 +40,7 @@ public class DietQuizUI : MonoBehaviour
 
     public void ShowCamera(bool show)
     {
-        animator.SetBool("ShowCamera",show);
+        //cameraAnimator.SetBool("ShowCamera",show);
     }
 
 }

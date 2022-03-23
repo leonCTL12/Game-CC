@@ -215,7 +215,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Diet Quiz Panel/Camera Panel Button
+    path: Top Status Bar/Camera Panel Button
   m_FloatCurves: []
   m_PPtrCurves: []
   m_SampleRate: 60
@@ -275,7 +275,7 @@ AnimationClip:
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 3253268399
+      path: 2648239741
       attribute: 3
       script: {fileID: 0}
       typeID: 4
@@ -916,7 +916,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
-    path: Diet Quiz Panel/Camera Panel Button
+    path: Top Status Bar/Camera Panel Button
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -944,7 +944,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
-    path: Diet Quiz Panel/Camera Panel Button
+    path: Top Status Bar/Camera Panel Button
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -972,7 +972,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
-    path: Diet Quiz Panel/Camera Panel Button
+    path: Top Status Bar/Camera Panel Button
     classID: 224
     script: {fileID: 0}
   m_EulerEditorCurves: []

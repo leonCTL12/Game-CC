@@ -10,7 +10,6 @@ public class PhoneCamera : MonoBehaviour
     private Texture defaultBackground;
 
     public RawImage background;
-    public AspectRatioFitter fit;
 
     private void Start()
     {
@@ -26,10 +25,7 @@ public class PhoneCamera : MonoBehaviour
 
         for(int i=0; i<devices.Length; i++)
         {
-            //if(!devices[i].isFrontFacing)
-            //{
-                backCam = new WebCamTexture(devices[i].name);
-            //} 
+            backCam = new WebCamTexture(devices[i].name);
         }
 
         if(backCam == null)
@@ -47,9 +43,6 @@ public class PhoneCamera : MonoBehaviour
     {
         if (!camAvailable)
             return;
-
-        float ratio = (float)backCam.width / (float)backCam.height;
-        fit.aspectRatio = ratio;
 
         float scaleY = backCam.videoVerticallyMirrored ? -1f: 1f;
         background.rectTransform.localScale = new Vector3(1f, scaleY, 1f);

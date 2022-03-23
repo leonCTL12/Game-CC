@@ -9,7 +9,7 @@ public class CameraButton : MonoBehaviour
     private DietQuizUI dietQuiz;
 
     [SerializeField]
-    private GameObject cameraPanel;
+    private GameObject cameraPanel, resultPanel, questionPanel;
 
     [SerializeField]
     private Sprite cameraIcon, quizIcon;
@@ -24,10 +24,13 @@ public class CameraButton : MonoBehaviour
     public void OnCameraButtonClick()
     {
         inQuiz = !inQuiz;
-        dietQuiz.ShowCamera(!inQuiz);
         Sprite icon = inQuiz ? cameraIcon : quizIcon;
         cameraPanel.SetActive(!inQuiz);
+        questionPanel.SetActive(inQuiz);
+        resultPanel.SetActive(inQuiz);
         iconImg.sprite = icon;
+        dietQuiz.ShowCamera(!inQuiz);
+
     }
 
 }
