@@ -9,9 +9,27 @@ public class PhoneCamera : MonoBehaviour
     private WebCamTexture backCam;
     private Texture defaultBackground;
 
+    [SerializeField]
+    private Animator animator;
+
+
     public RawImage background;
-    private bool tookPhoto = false;
     private AudioSource audioSource;
+
+    [SerializeField]
+    private CommentType commentType;
+
+    private enum CommentType
+    {
+        balanced,
+        fastFood,
+        trash
+    }
+
+    [SerializeField]
+    private Text dietComment;
+
+    private string balancedComment = "Rate: 10/10 \n Comment: This is a balanced diet! GJ!";
 
     private void Awake()
     {
@@ -44,6 +62,25 @@ public class PhoneCamera : MonoBehaviour
         backCam.Play();
         background.texture = backCam;
         camAvailable = true;
+
+        SetComment();
+    }
+
+    private void SetComment()
+    {
+        string comment = null;
+        switch (commentType)
+        {
+            case CommentType.balanced:
+                comment = balancedComment;
+                break;
+            default:
+                comment = balancedComment;
+                break;
+
+        }
+
+        dietComment.text = comment;
     }
 
     private void Update()
@@ -68,5 +105,8 @@ public class PhoneCamera : MonoBehaviour
         audioSource.Play();
         yield return new WaitForSeconds(0.2f);
         backCam.Pause();
+        animator.SetTrigger("ShowComment");
+        camAvailable = false;
+
     }
 }
