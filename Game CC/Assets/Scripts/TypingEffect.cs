@@ -9,6 +9,10 @@ public class TypingEffect : MonoBehaviour
     [SerializeField]
     private float typeSpeed;
     private AudioSource audioSource;
+    [SerializeField]
+    private AudioClip typingSFX;
+    [SerializeField]
+    private bool forceUseTypingSFX;
 
     private void Awake()
     {
@@ -16,8 +20,15 @@ public class TypingEffect : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
-    public void Type(string stringToType)
+    public void Type(string stringToType, AudioClip clip = null)
     {
+        if (!forceUseTypingSFX)
+        {
+            audioSource.clip = clip;
+        } else
+        {
+            audioSource.loop = true;
+        }
         StartCoroutine(TypeCoroutine(stringToType));
     }
 

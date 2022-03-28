@@ -45,7 +45,7 @@ public class DialogueManager : MonoBehaviour
             return; 
         }
         DialogueItem dialogue = dialogueItems[currentDialogueIndex];
-        contentText.Type(dialogue.line);
+        contentText.Type(dialogue.line, dialogue.clip) ;
         robot.ChangeAnimatorIdle(dialogue.trigger.ToString());
         robot.ChangeEyeOffset(dialogue.eye);
 

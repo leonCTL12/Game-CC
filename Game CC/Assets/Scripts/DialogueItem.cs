@@ -15,4 +15,6 @@ public class DialogueItem
     public CharacterSkinController.EyePosition eye;
     public robotTrigger trigger;
     public string line;
+
+    public AudioClip clip;
 }

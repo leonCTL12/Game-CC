@@ -1153,14 +1153,30 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1545497031, guid: 5bc5acaae35aa3a4baff457369482a03, type: 3}
+      propertyPath: dialogueItems.Array.data[9].eye
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1545497031, guid: 5bc5acaae35aa3a4baff457369482a03, type: 3}
+      propertyPath: dialogueItems.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 17d8443c0bdade64aa775fa4cae9c72b, type: 3}
+    - target: {fileID: 1545497031, guid: 5bc5acaae35aa3a4baff457369482a03, type: 3}
       propertyPath: dialogueItems.Array.data[0].line
       value: Wow, seems the signal is finally stable~
       objectReference: {fileID: 0}
+    - target: {fileID: 1545497031, guid: 5bc5acaae35aa3a4baff457369482a03, type: 3}
+      propertyPath: dialogueItems.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: d42ecb62a6965044ea90809bb47aacfa, type: 3}
     - target: {fileID: 1545497031, guid: 5bc5acaae35aa3a4baff457369482a03, type: 3}
       propertyPath: dialogueItems.Array.data[1].line
       value: Oh, I forget to introduce myself. I am Healro. A nanorobot inside your
         body.
       objectReference: {fileID: 0}
+    - target: {fileID: 1545497031, guid: 5bc5acaae35aa3a4baff457369482a03, type: 3}
+      propertyPath: dialogueItems.Array.data[2].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 0e0e9398e183ac9448f0db895b906879, type: 3}
     - target: {fileID: 1545497031, guid: 5bc5acaae35aa3a4baff457369482a03, type: 3}
       propertyPath: dialogueItems.Array.data[2].line
       value: My duty is to protect you from viruses. But recently, I realise that
@@ -1168,28 +1184,57 @@ PrefabInstance:
         weak!
       objectReference: {fileID: 0}
     - target: {fileID: 1545497031, guid: 5bc5acaae35aa3a4baff457369482a03, type: 3}
+      propertyPath: dialogueItems.Array.data[3].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 98dc39bc449c1a34b8248c276a2e415a, type: 3}
+    - target: {fileID: 1545497031, guid: 5bc5acaae35aa3a4baff457369482a03, type: 3}
       propertyPath: dialogueItems.Array.data[3].line
       value: You must take action to lead a healthy lifestyle. Otherwise, I can no
         longer defeat the viruses!
       objectReference: {fileID: 0}
     - target: {fileID: 1545497031, guid: 5bc5acaae35aa3a4baff457369482a03, type: 3}
+      propertyPath: dialogueItems.Array.data[4].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 201895a80e7f9544eae1e454f8484921, type: 3}
+    - target: {fileID: 1545497031, guid: 5bc5acaae35aa3a4baff457369482a03, type: 3}
       propertyPath: dialogueItems.Array.data[4].line
       value: Let me give you two suggestions!
       objectReference: {fileID: 0}
+    - target: {fileID: 1545497031, guid: 5bc5acaae35aa3a4baff457369482a03, type: 3}
+      propertyPath: dialogueItems.Array.data[5].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: c8bfbc168356daf4ca139596f8349199, type: 3}
     - target: {fileID: 1545497031, guid: 5bc5acaae35aa3a4baff457369482a03, type: 3}
       propertyPath: dialogueItems.Array.data[5].line
       value: First, you are too lazy. You need to work out more frequently.
       objectReference: {fileID: 0}
     - target: {fileID: 1545497031, guid: 5bc5acaae35aa3a4baff457369482a03, type: 3}
+      propertyPath: dialogueItems.Array.data[6].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: e4d1549fc3dc7ca4b8d024123547a3e0, type: 3}
+    - target: {fileID: 1545497031, guid: 5bc5acaae35aa3a4baff457369482a03, type: 3}
       propertyPath: dialogueItems.Array.data[6].line
       value: Apart from that, you eat too much junk food, making my home stinky.
       objectReference: {fileID: 0}
+    - target: {fileID: 1545497031, guid: 5bc5acaae35aa3a4baff457369482a03, type: 3}
+      propertyPath: dialogueItems.Array.data[7].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1ab7c43f85566954db5ae4534ffd0583, type: 3}
     - target: {fileID: 1545497031, guid: 5bc5acaae35aa3a4baff457369482a03, type: 3}
       propertyPath: dialogueItems.Array.data[7].line
       value: Um... That's not the main point. I believe you get what I mean!
       objectReference: {fileID: 0}
     - target: {fileID: 1545497031, guid: 5bc5acaae35aa3a4baff457369482a03, type: 3}
+      propertyPath: dialogueItems.Array.data[8].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1ac12ed391f287847b018c732d1a379a, type: 3}
+    - target: {fileID: 1545497031, guid: 5bc5acaae35aa3a4baff457369482a03, type: 3}
       propertyPath: dialogueItems.Array.data[8].line
+      value: Oh, I saw two viruses just went by, I have to hunt them down. Talk to
+        you later! Bye!
+      objectReference: {fileID: 0}
+    - target: {fileID: 1545497031, guid: 5bc5acaae35aa3a4baff457369482a03, type: 3}
+      propertyPath: dialogueItems.Array.data[9].line
       value: Oh, I saw two viruses just went by, I have to hunt them down. Talk to
         you later! Bye!
       objectReference: {fileID: 0}
@@ -1223,6 +1268,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1545497031, guid: 5bc5acaae35aa3a4baff457369482a03, type: 3}
       propertyPath: dialogueItems.Array.data[8].trigger
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1545497031, guid: 5bc5acaae35aa3a4baff457369482a03, type: 3}
+      propertyPath: dialogueItems.Array.data[9].trigger
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2156720100848150737, guid: 5bc5acaae35aa3a4baff457369482a03,
@@ -1271,6 +1320,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FontData.m_FontSize
       value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 4288282948826079272, guid: 5bc5acaae35aa3a4baff457369482a03,
+        type: 3}
+      propertyPath: typeSpeed
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 4288282948826079272, guid: 5bc5acaae35aa3a4baff457369482a03,
+        type: 3}
+      propertyPath: typingSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 2242f8818f7f7a1469fa26ccb55c33bb, type: 3}
+    - target: {fileID: 4288282948826079272, guid: 5bc5acaae35aa3a4baff457369482a03,
+        type: 3}
+      propertyPath: forceUseTypingSFX
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7387728489396111512, guid: 5bc5acaae35aa3a4baff457369482a03,
         type: 3}
@@ -1432,7 +1496,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
