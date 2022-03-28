@@ -10,6 +10,13 @@ public class PhoneCamera : MonoBehaviour
     private Texture defaultBackground;
 
     public RawImage background;
+    private bool tookPhoto = false;
+    private AudioSource audioSource;
+
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     private void Start()
     {
@@ -49,9 +56,17 @@ public class PhoneCamera : MonoBehaviour
 
         int orient = -backCam.videoRotationAngle;
         background.rectTransform.localEulerAngles = new Vector3(0, 0, orient);
-
-
     }
 
+    public void TakePhoto()
+    {
+        StartCoroutine(PhotoCoroutine());
+    }
 
+    private IEnumerator PhotoCoroutine()
+    {
+        audioSource.Play();
+        yield return new WaitForSeconds(0.2f);
+        backCam.Pause();
+    }
 }
