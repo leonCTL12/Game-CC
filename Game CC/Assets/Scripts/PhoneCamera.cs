@@ -21,15 +21,16 @@ public class PhoneCamera : MonoBehaviour
 
     private enum CommentType
     {
-        balanced,
-        fastFood,
-        trash
+        apple,
+        instantNoodle,
     }
 
     [SerializeField]
     private Text dietComment;
 
-    private string balancedComment = "Rate: 10/10 \n Comment: This is a balanced diet! GJ!";
+    private string appleComment = "Rate: 10/10 \n Comment: an apple a day keeps the doctor away ^^";
+
+    private string noodleComment = "Rate: 2/10 \n Comment: instant noodle is not good for health :(";
 
     private void Awake()
     {
@@ -71,11 +72,14 @@ public class PhoneCamera : MonoBehaviour
         string comment = null;
         switch (commentType)
         {
-            case CommentType.balanced:
-                comment = balancedComment;
+            case CommentType.apple:
+                comment = appleComment;
+                break;
+            case CommentType.instantNoodle:
+                comment = noodleComment;
                 break;
             default:
-                comment = balancedComment;
+                comment = appleComment;
                 break;
 
         }

@@ -3267,9 +3267,12 @@ PrefabInstance:
     - target: {fileID: 3074439512335563007, guid: 42c8d7032af7fb945b65e7ca6d972ff0,
         type: 3}
       propertyPath: m_Text
-      value: 'Gun B
-
-'
+      value: '"Medchine" Gun'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3074439512335563007, guid: 42c8d7032af7fb945b65e7ca6d972ff0,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 3074439512450951970, guid: 42c8d7032af7fb945b65e7ca6d972ff0,
         type: 3}
@@ -6485,7 +6488,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11400002, guid: 05a81c3d5091440058129444d28322f3, type: 3}
       propertyPath: m_Text
-      value: 'Diet Quiz
+      value: 'Diet
 
 '
       objectReference: {fileID: 0}
@@ -7352,7 +7355,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1387446653}
   background: {fileID: 602470404}
-  commentType: 0
+  commentType: 1
   dietComment: {fileID: 758326293}
 --- !u!1001 &619682496
 PrefabInstance:
@@ -7364,7 +7367,12 @@ PrefabInstance:
     - target: {fileID: 3074439512335563007, guid: 42c8d7032af7fb945b65e7ca6d972ff0,
         type: 3}
       propertyPath: m_Text
-      value: Gun C
+      value: Capsule Grenade
+      objectReference: {fileID: 0}
+    - target: {fileID: 3074439512335563007, guid: 42c8d7032af7fb945b65e7ca6d972ff0,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 3074439512450951970, guid: 42c8d7032af7fb945b65e7ca6d972ff0,
         type: 3}
@@ -15286,7 +15294,7 @@ RectTransform:
   m_GameObject: {fileID: 1387446649}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 602470403}
   - {fileID: 248900691}
@@ -24691,6 +24699,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1598728728}
     m_Modifications:
+    - target: {fileID: 3074439512335563007, guid: 42c8d7032af7fb945b65e7ca6d972ff0,
+        type: 3}
+      propertyPath: m_Text
+      value: Injection Gun
+      objectReference: {fileID: 0}
+    - target: {fileID: 3074439512335563007, guid: 42c8d7032af7fb945b65e7ca6d972ff0,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 3074439513654277553, guid: 42c8d7032af7fb945b65e7ca6d972ff0,
         type: 3}
       propertyPath: m_Name
